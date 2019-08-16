@@ -1,10 +1,7 @@
 <template>
 	<van-swipe :autoplay=' play ? play : 0 '  indicator-color="white" >
-		<van-swipe-item v-for='item in list' :key='item.id'>
-			<router-link tag='a' :to='item.url' v-if='item.url'>
-				<img :src="item.img" alt="">
-			</router-link>
-			<img :src="item.img" alt="" v-else>
+		<van-swipe-item v-for='item in 5' :key='item'>
+			<img src="../assets/img/2.jpg" alt="">
 		</van-swipe-item>
 	</van-swipe>
 </template>

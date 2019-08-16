@@ -1,15 +1,16 @@
 <template>
 	<div class="layout">
-		layout
-		<router-view></router-view>
-		
+		<keep-alive>
+			<router-view></router-view>
+		</keep-alive>
+		<page-footer></page-footer>
 	</div>
 </template>
 
 <script>
-	
+	import pageFooter from '@c/Footer'
 	export default {
-		components: {},
+		components: {pageFooter},
 		data () {
 			return {
 				

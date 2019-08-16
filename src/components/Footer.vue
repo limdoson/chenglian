@@ -1,18 +1,25 @@
 <template>
-	<div>
-		底部按钮
-		<van-tabbar 
-			class='page-footer'
-			v-model="active"
-			route
-			active-color="orangered">
-			<van-tabbar-item icon="home-o" to='/'>首页</van-tabbar-item>
-			<van-tabbar-item icon="apps-o" to='/cls'>分类</van-tabbar-item>
-			<van-tabbar-item icon="shopping-cart-o" to='/shop-car'>购物车</van-tabbar-item>
-			<van-tabbar-item icon="friends-o" to='/user'>我的</van-tabbar-item>
-			<van-tabbar-item icon="gem-o" to='/fx' v-if='$store.state.user.type == 2'>分销中心</van-tabbar-item>
-		</van-tabbar>
-	</div>
+	<ul class="page-footer s-a">
+		<router-link tag='li' to='/'>
+			<i class="iconfont">&#xe6bc;</i>
+			<p>首页</p>
+		</router-link>
+		<router-link tag='li' to='/shop-car'>
+			<i class="iconfont">&#xe65c;</i>
+			<p>购物车</p>
+		</router-link>
+		<li class='logo'>
+			<img src="../assets/img/logo.jpg" alt="">
+		</li>
+		<router-link tag='li' to='/user-center'>
+			<i class="iconfont">&#xe608;</i>
+			<p>我的</p>
+		</router-link>
+		<router-link tag='li' to='/extension'>
+			<i class="iconfont">&#xe600;</i>
+			<p>推广中心</p>
+		</router-link>
+	</ul>
 	
 </template>
 <script>
@@ -23,7 +30,7 @@
 			}
 		},
 		created  () {
-			console.log('import footer')
+			
 		},
 		//mounted () {},
 		methods : {
@@ -32,10 +39,5 @@
 	}
 </script>
 <style scoped lang="less">
-	.page-footer {
-		position: fixed;
-		bottom: 0;
-		z-index: 1987;
-		width: 100%;
-	}
+	
 </style>

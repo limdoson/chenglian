@@ -1,367 +1,60 @@
 @import'./_b.less';
+//layout
+.layout {
+	padding-bottom: 70px;
+}
+//首页样式
 .index {
-	padding-bottom: 80px;
-	.van-swipe {
-		margin-bottom: 6px;
-	}
-}
-//购物车页面样式
-.shop-car {
-	padding-bottom: 180px;
-	.list {
-		li {
-			padding: 10px;
-			background: #fff;
-			.bb();
-			img {
-				width: 70px;
-				margin : 0 15px;
-				.br();
-			}
-			.product-info {
-				-webkit-flex : 1;
-				font-size: 13px;
-				h1,p{
-					margin-bottom: 6px;
-				}
-				.attr {
-					font-size: .8rem;
-					color: #ccc;
-				}
-			}
-		}
-	}
-	footer {
-		position: fixed;
-		bottom: 50px;
-		width: ~"calc(100% - 10px)";
-		padding: 0px 0px 0px 10px;
+	.img-menu {
+		margin-top: 6px;
 		background: #fff;
-		.total-price {
-			margin-left: 10px;
-			color: red;
-			font-size: 13px;
-		}
-		.van-button {
-			border-radius: 0;
-		}
-	}
-}
-//商品分类样式
-.cls {
-	aside {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 90px;
-		background: #fff;
-		height: ~"calc(100% - 50px)";
-		.cls-list {
-			height: ~"calc(100% - 50px)";
-		}
-		.swiper-slide {
-			touch-action : none;
-			text-align: center;
-			font-size: 12px;
-			line-height: 50px;
-		}
-		.cls_active {
-			background: #f1f1f1;
-		}
-	}
-	main {
-		padding-left: 95px;
-		padding-right: 5px;
-		.sub-cls {
-			padding: 5px;
-			h1 {
-				font-size: 13px;
-				margin-bottom: 10px;
-			}
-			ul {
-				border-radius: 8px;
-				background: #fff;
-				text-align: center;
-				-webkit-flex-wrap : wrap;
-				img {
-					display: inline-block;
-					width: 40px;
-					border-radius: 4px;
-				}
-				li {
-					padding: 10px 0;
-					width: 33.33%;
-					font-size: 12px;
-					color: #555;
-					// margin-bottom: 10px;
-				}
-			}
-			
-			
-		}
-	}
-}
-//会员中心样式
-.user {
-	padding-bottom: 100px;
-	header {
-		.bg {
-			height: 100px;
-			background: -webkit-linear-gradient(left, #7048f3, #a612f5);
-		}
-		.container {
-			position: relative;
-			width: 82%;
-			margin: -85px auto 0;
-			padding: 20px;
-			border-radius: 10px;
-			background: -webkit-linear-gradient(left, #825cff, #b936fe);
-			.apply {
-				position: absolute;
-				top: 20px;
-				right: 0;
-				width: 100px;
-				height: 30px;
-				background: #ffa463;
-				border-radius: 20px 0 0 20px;
-				color: #8c5500;
-				font-size: 13px;
-				line-height: 30px;
-				text-align: center;
-			}
-			.user-info {
-				color: #fff;
-				img {
-					width: 60px;
-					height: 60px;
-					border-radius: 50%;
-					border: 2px solid #fff;
-					margin-right: 15px;
-				}
-				h1 {
-					margin-bottom: 8px;
-					font-size: 14px;
-				}
-				p {
-					font-size: 12px;
-					color :#e4e4e4;
-				}
-			}
-			.account-info {
-				margin-top: 10px;
-				color: #fff;
-				li {
-					text-align: center;
-					h1 {
-						margin-bottom: 8px;
-						font-size: 14px;
-					}
-					p {
-						font-size: 12px;
-						color :#e4e4e4;
-					}
-				}
-			}
-		}
-	}
-	.order-tab {
-		padding: 10px;
-		margin-top: 10px;
-		background: #fff;
-		h1 {
-			margin-bottom: 15px;
-			color: #666;
-			font-size: 14px;
-			span {
-				color: #ccc;
-				.iconfont {
-					margin-left: 8px;
-					font-size: 12px;
-				}
-			}
-		}
-		ul {
-			li {
-				text-align: center;
-				font-size: 13px;
-				color:#666;
-				p {
-					margin-top: 8px;
-				}
-				.iconfont {
-					font-size: 24px;
-					
-				}
-				&:nth-of-type(1) .iconfont {
-					color: #63b963;
-				}
-				&:nth-of-type(2) .iconfont {
-					font-size: 26px;
-					color: #637cff;
-				}
-				&:nth-of-type(3) .iconfont {
-					font-size: 26px;
-					color: orange;
-				}
-				&:nth-of-type(4) .iconfont {
-					font-size: 26px;
-					color: deepskyblue;
-				}
-			}
-		}
-	}
-	.menu {
-		margin-top: 10px;
-		li {
-			padding: 10px;
-			background: #fff;
-			.bb();
-			div {
-				font-size: 13px;
-				.iconfont {
-					margin-right: 10px;
-					font-size: 18px;
-				}
-			}
-			.right-arrow {
-				color: #ccc;
-				font-size: 13px;
-			}
-		}
-	}
-}
-.adr-manage {
-	footer {
-		position: fixed;
-		bottom: 0px;
-		width: 100%;
-		height: 40px;
-		background: @themeColor;
-		color: #fff;
-		font-size: 14px;
+		padding : 10px 0;
 		text-align: center;
-		line-height: 40px;
-	}
-}
-//优惠券领取中心
-.ticket {
-	.list {
-		li {
-			background: #fff;
-			border-radius: 5px;
-			border: 1px solid #f1f1f1;
-			padding: 10px;
-			width: 90%;
-			margin: 10px auto;
-			p {
-				font-size: 12px;
-				color: #ccc;
-				margin-top: 8px;
-			}
-			div:nth-of-type(1) {
-				margin-right: 10px;
-				h1 {
-					color: red;
-					span {
-						font-size: 16px;
-						font-weight: bold;
-					}
-				}
-			}
-		}
-	}
-}
-//消息
-.msg {
-	.list {
-		li {
-			background: #fff;
-			padding: 10px;
-			.bb();
-			h1 {
-				font-size: 14px;
-				color: #666;
-			}
-			p {
-				margin-top: 8px;
-				text-align: right;
-				color: #ccc;
-				font-size: 12px;
-			}
-		}
-	}
-}
-//内容详情
-.msg-detail {
-	.content {
-		padding: 10px;
-		background: #fff;
-		font-size: 13px;
 		color: #666;
-		text-indent: 2em;
-		.time {
-			text-align: right;
-			font-size : 12px;
-			color: #ccc;
-		}
-	}
-}
-//充值记录
-.recharge-record {
-	.list {
-		li {
-			background: #fff;
-			padding: 10px;
-			.bb();
-			font-size: 13px;
-			p {
-				font-size: 12px;
-				color: #ccc;
-			}
-		}
-	}
-}
-//分销二维码
-.share-qrcode {
-	.container {
-		background: #fff;
-		padding: 15px;
-		text-align: center;
 		img {
-			width: 60%;
-			margin: 0 auto;
+			width: 30px;
+			height: 30px;
 		}
 		p {
-			font-size: 13px;
-			color: #ccc;
+			font-size: .8em;
 		}
 	}
 }
-//分销团队
-.team {
+//会员中心
+.user-center {
+	padding-bottom: 70px;
 	header {
+		padding : 15px 20px;
 		background: @themeColor;
-		padding: 15px 10px;
 		color: #fff;
-		font-size: 13px;
-	}
-	.list {
-		li {
-			padding: 10px;
-			font-size: 13px;
-			background: #fff;
-			.bb();
-			h1 {
-				color: #ccc;
+		img {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			margin-right: 15px;
+			border : 2px solid #fff;
+		}
+		h1 {
+			p {
+				margin-bottom: 6px;
 			}
 		}
 	}
-}
-.order {
-	padding-top: 100px;
-	.tab {
-		position: fixed;
-		top: 46px;
-		width: 100%;
+	.account-info {
+		padding :10px 15px;
+		background: #fff;
+		text-align: center;
+		h1 {
+			font-size: 12px;
+			color: #666;
+			margin-bottom: 6px;
+		}
+		p {
+			font-size: .5em;
+			.red();
+			span {
+				font-size: .9em;
+			}
+		}
 	}
 }

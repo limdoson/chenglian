@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Store from './store'
 import http from './utils/http.js'
+import router_module from './config/routerModule.js'
 Vue.use(Router)
 
 let router = new Router({
@@ -12,7 +13,18 @@ let router = new Router({
         {
 			path : '/',
 			component : () => import('@v/Layout'),
-		} 
+			children : [
+				{
+					path : '',
+					component : () => import('@v/Index'),
+				},
+				{
+					path : 'user-center',
+					component : () => import('@v/UserCenter'),
+				}
+			]
+		},
+		...router_module
     ]
 })
 // let wx_api_list =['openLocation','getLocation','updateAppMessageShareData','updateTimelineShareData','onMenuShareAppMessage','onMenuShareTimeline','chooseWXPay'];
