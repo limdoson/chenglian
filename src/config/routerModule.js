@@ -63,5 +63,21 @@ const router_module = [
 			title :'收支明细'
 		}
 	},
+	//消费金商城首页
+	{
+		path : '/cspn-shop',
+		component : () => import('@v/cspn-shop/Index'),
+		meta : {
+			title :'消费金商城'
+		}
+	},
+	//商家详情页
+	{
+		path : '/shop-detail/:id?',
+		component : () => import('@v/shop/Index'),
+		meta : {
+			title :'店铺详情'
+		}
+	}
 ]
 export default router_module;

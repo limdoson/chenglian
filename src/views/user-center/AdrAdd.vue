@@ -13,13 +13,7 @@
 				@click='show = true'
 				placeholder="点击选择所在地区"/>
 			<van-field v-model='name' required label='详细地址' placeholder='请输入详细地址'></van-field>
-			<van-cell title="是否设为默认地址">
-				<van-switch
-					v-model="name"
-					slot='right-icon'
-					size='20px'
-					active-color="#07c160"/>
-			</van-cell>
+			<van-switch-cell v-model="name" title="是否设为默认地址" />
 		</van-cell-group>
 		<cl-pri-btn >{{ $route.params.id ? '保存编辑' : '保存添加' }}</cl-pri-btn>
 		<!-- 地区选择 -->

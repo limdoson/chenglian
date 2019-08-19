@@ -7,6 +7,7 @@
 		left-arrow
 		@click-left="onClickLeft"
 		@click-right="onClickRight"
+		:z-index='1987'
 	/>
 </template>
 

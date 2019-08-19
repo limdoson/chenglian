@@ -14,7 +14,7 @@
 		</header>
 		<!-- 账户信息 -->
 		<ul class="account-info s-b">
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/cspn-shop'>
 				<h1>
 					消费金账户
 				</h1>
