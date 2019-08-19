@@ -50,27 +50,27 @@
 				<img src="../assets/img/chongzhi.png" alt="">
 				<p>充值</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/share-qr-code'>
 				<img src="../assets/img/qrcode.png" alt="">
 				<p>推广会员</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/share-qr-code'>
 				<img src="../assets/img/join-shop.png" alt="">
 				<p>推广商家</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/shop-apply'>
 				<img src="../assets/img/shop.png" alt="">
 				<p>我要开店</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/adr-list'>
 				<img src="../assets/img/address.png" alt="">
 				<p>地址管理</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/budget-detail'>
 				<img src="../assets/img/shouzhimingxi.png" alt="">
 				<p>收支明细</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/reset-pwd'>
 				<img src="../assets/img/pwd.png" alt="">
 				<p>修改密码</p>
 			</router-link>

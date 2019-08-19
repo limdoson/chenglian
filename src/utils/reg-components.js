@@ -5,6 +5,7 @@ import ClTips from '@c/ClTips'
 import ClNoticeTitle from '@c/ClNoticeTitle'
 import ClPriBtn from '@c/ClPriBtn'
 import ClDatePicker from '@c/ClDatePicker'
+import None from '@c/None'
 function vComponent(Vue) {
 	// 判断组件组件是否已安装
 	if(vComponent.installed){
@@ -17,6 +18,7 @@ function vComponent(Vue) {
 	Vue.component('ClNoticeTitle',ClNoticeTitle);
 	Vue.component('ClPriBtn',ClPriBtn);
 	Vue.component('ClDatePicker',ClDatePicker);
+	Vue.component('None',None);
 }
 // 导出组件
 export default vComponent
