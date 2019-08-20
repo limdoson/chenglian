@@ -84,11 +84,17 @@
 	.list {
 		flex-wrap :wrap;
 		li {
-			width: 45%;
+			width: 47%;
 			margin : 5px 0;
 			background: #fff;
 			border-radius: 4px;
 			overflow: hidden;
+			&:nth-child(2n) {
+				margin: 2% 1%;
+			}
+			&:nth-child(2n -1) {
+				margin: 1% 2%;
+			}
 			img {
 				width: 100%;
 				border-radius: 3px;
@@ -230,6 +236,50 @@
 		}
 		.distance {
 			text-align: right;
+		}
+	}
+}
+.order-list {
+	li {
+		background: #fff;
+		padding : 0 10px;
+		margin-bottom: 8px;
+		.order-no {
+			font-size: 13px;
+			color: #444;
+			padding : 5px 0;
+			border-bottom: 1px solid #f1f1f1;
+		}
+		img {
+			width: 80px;
+			border-radius: 4px;
+			margin-right: 10px;
+		}
+		.f-s {
+			padding : 10px 0;
+		}
+		.order-info {
+			flex: 1;
+			h1,p {
+				margin-bottom: 6px;
+			}
+			.attr {
+				padding: 0;
+				span {
+					margin-right: 4px;
+					padding : 4px;
+					border-radius: 6px;
+					background: #f1f1f1;
+					font-size: .6rem;
+				}
+			}
+		}
+		.time {
+			color: #ccc;
+			padding-bottom: 6px;
+			.van-button {
+				margin: 0 2px;
+			}
 		}
 	}
 }

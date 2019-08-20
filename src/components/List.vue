@@ -7,9 +7,9 @@
 			</header>
 		</slot>
 		<slot name='list'>
-			<ul class="list s-a">
-				<router-link tag='li' to='' v-for='(item, index) in imgs' :key='index'>
-					<img :src="item" alt="" v-lazy='item'>
+			<ul class="list f-s">
+				<li v-for='(item, index) in imgs' :key='index' @click='itemClick'>
+					<img src="../assets/img/2.jpg" alt="">
 					<h1 class="product-name">商品名称商品名称商品名称</h1>
 					<p class="s-b list-item-buttom">
 						<span class="price">
@@ -19,7 +19,10 @@
 							送<a>5</a>%
 						</span>
 					</p>
-				</router-link>
+				</li>
+				<!-- <router-link tag='li' to='/product-detail' v-for='(item, index) in imgs' :key='index'>
+					
+				</router-link> -->
 			</ul>
 		</slot>
 		
@@ -47,7 +50,9 @@
 			}
 		},
 		methods: {
-			
+			itemClick () {
+				this.$router.push('/product-detail')
+			}
 		}
 	}
 </script>

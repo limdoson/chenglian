@@ -40,7 +40,8 @@
 			</router-link>
 		</ul>
 		<!-- 公告 -->
-		<marquee class='notice' behavior="" direction="left" style="margin-top: 8px;">会员中心公告</marquee>
+		<router-link tag='marquee' class='notice' behavior="" direction="left" style="margin-top: 8px;" to='/article-detail'>会员中心公告</router-link>
+		<!-- <marquee ></marquee> -->
 		
 		<!-- 订单tab -->
 		<order-tab style='margin-top: 6px;'></order-tab>

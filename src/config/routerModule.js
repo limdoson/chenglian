@@ -119,5 +119,37 @@ const router_module = [
 			title :'提现记录'
 		}
 	},
+	//用户订单
+	{
+		path : '/user-order/:flag?',
+		component : () => import('@v/user-center/UserOrder'),
+		meta : {
+			title :'我的订单'
+		}
+	},
+	//公用的文章详情页
+	{
+		path : '/article-detail/:id?',
+		component : () => import('@v/common-page/ArticleDetail'),
+		meta : {
+			title :'详情'
+		}
+	},
+	//用户信息
+	{
+		path : '/user-info',
+		component : () => import('@v/user-center/UserInfo'),
+		meta : {
+			title :'用户信息'
+		}
+	},
+	//商品详情
+	{
+		path : '/product-detail/:id?',
+		component : () => import('@v/product/ProductDetail'),
+		meta : {
+			title :'商品详情'
+		}
+	},
 ]
 export default router_module;
