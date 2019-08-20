@@ -103,5 +103,21 @@ const router_module = [
 			title :'提现'
 		}
 	},
+	//提现账户设置
+	{
+		path : '/cash-setting',
+		component : () => import('@v/user-center/CashSetting'),
+		meta : {
+			title :'提现设置'
+		}
+	},
+	//提现记录
+	{
+		path : '/cash-log',
+		component : () => import('@v/user-center/CashLog'),
+		meta : {
+			title :'提现记录'
+		}
+	},
 ]
 export default router_module;
