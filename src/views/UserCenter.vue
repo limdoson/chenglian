@@ -32,7 +32,7 @@
 				</h1>
 				<p>￥<span>1.00</span></p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/cash-withdrawal'>
 				<h1>
 					补点余额
 				</h1>

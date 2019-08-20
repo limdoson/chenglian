@@ -13,6 +13,9 @@
 				<van-cell title="现金余额：0.00" clickable @click="radio = 2">
 					<van-radio slot="right-icon" :name="2" checked-color="#07c160" />
 				</van-cell>
+				<van-cell title="补点余额：0.00" clickable @click="radio = 3">
+					<van-radio slot="right-icon" :name="3" checked-color="#07c160" />
+				</van-cell>
 			</van-cell-group>
 		</van-radio-group>
 		<cl-notice-title label='选择到账账户'></cl-notice-title>
