@@ -49,7 +49,7 @@ const router_module = [
 	},
 	//会员中心->重置密码
 	{
-		path : '/reset-pwd/',
+		path : '/reset-pwd',
 		component : () => import('@v/user-center/ResetPwd'),
 		meta : {
 			title :'重置密码'
@@ -57,7 +57,7 @@ const router_module = [
 	},
 	//会员中心->收支明细
 	{
-		path : '/budget-detail/',
+		path : '/budget-detail',
 		component : () => import('@v/user-center/BudgetDetail'),
 		meta : {
 			title :'收支明细'
@@ -78,6 +78,30 @@ const router_module = [
 		meta : {
 			title :'店铺详情'
 		}
-	}
+	},
+	//付款页面
+	{
+		path : '/pay/:id?',
+		component : () => import('@v/shop/Pay'),
+		meta : {
+			title :'支付'
+		}
+	},
+	//现金余额首页
+	{
+		path : '/cash-balance',
+		component : () => import('@v/user-center/CashBalance'),
+		meta : {
+			title :'现金余额'
+		}
+	},
+	//提现
+	{
+		path : '/cash-withdrawal',
+		component : () => import('@v/user-center/CashWithdrawal'),
+		meta : {
+			title :'提现'
+		}
+	},
 ]
 export default router_module;

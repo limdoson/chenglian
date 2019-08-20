@@ -20,6 +20,9 @@ let router = new Router({
 				},
 				{
 					path : 'user-center',
+					meta : {
+						title : '用户中心'
+					},
 					component : () => import('@v/UserCenter'),
 				}
 			]
