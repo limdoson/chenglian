@@ -151,5 +151,37 @@ const router_module = [
 			title :'商品详情'
 		}
 	},
+	//商品全部评论
+	{
+		path : '/product-comments/:id?',
+		component : () => import('@v/product/ProductComments'),
+		meta : {
+			title :'商品评价'
+		}
+	},
+	//确认订单
+	{
+		path : '/confirm-order/:id?',
+		component : () => import('@v/order/ConfirmOrder'),
+		meta : {
+			title :'确认订单'
+		}
+	},
+	//支付成功
+	{
+		path : '/pay-success',
+		component : () => import('@v/order/PaySuccess'),
+		meta : {
+			title :'支付成功'
+		}
+	},
+	//绑定用户信息
+	{
+		path : '/bind',
+		component : () => import('@v/common-page/Bingd'),
+		meta : {
+			title :'用户信息完善'
+		}
+	},
 ]
 export default router_module;

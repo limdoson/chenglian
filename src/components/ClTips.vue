@@ -11,7 +11,7 @@
 	.tips {
 		padding : 10px;
 		font-size: 12px;
-		color: #ccc;
+		color: #adadad;
 		text-align: center;
 	}
 </style>
