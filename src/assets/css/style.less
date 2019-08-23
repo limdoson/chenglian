@@ -428,3 +428,218 @@
 		color: @themeColor;
 	}
 }
+//商品份额里
+.product-cla {
+	.van-sidebar {
+		position: fixed;
+		top: 0;
+		padding-top: 46px;
+		height: ~"calc(100% - 46px)";
+		overflow-y: scroll;
+		background: #f8f8f8;
+		z-index: 1;
+		.van-sidebar-item {
+			padding: 10px 12px 10px 8px;
+		}
+		.van-sidebar-item--select {
+			border-color: @themeColor;
+		}
+	}
+	.sub-cla {
+		position: fixed;
+		top: 0;
+		left: 85px;
+		padding: 56px 10px 10px 10px;
+		background: #fff;
+		height: ~"calc(100% - 46px)";
+		width:  ~"calc(100% - 105px)";
+		z-index: 1;
+		overflow-y : scroll;
+		.ad-img {
+			width: 100%;
+			border-radius: 4px;
+		}
+		.sub-cla-list {
+			margin-top: 10px;
+			flex-wrap: wrap;
+			padding-bottom : 10px;
+			li {
+				width: 27%;
+				margin: 0 3% 10px 3%;
+				text-align: center;
+				
+				color: #555;
+				img {
+					width: 100%;
+					border-radius: 2px;
+				}
+				p {
+					font-size: .4rem;
+				}
+			}
+		}
+	}
+}
+//附近店铺
+.nearby-shops {
+	padding-top : 80px;
+	.van-dropdown-menu {
+		height: 30px;
+		position : fixed;
+		top : 46px;
+		width: 100%;
+		.van-ellipsis {
+			font-size: 12px;
+		}
+	}
+	
+	.van-dropdown-item__option {
+		font-size: 13px;
+		padding : 5px 16px;
+	}
+}
+//推广中心
+.distribution {
+	padding-bottom : 70px;
+	header {
+		background: #fff;
+		padding : 10px;
+		.crown {
+			width: 50px;
+			margin-right: 15px;
+			border-radius: 50%;
+		}
+		.medal {
+			width: 30px;
+		}
+		h1 {
+			margin-bottom: 8px;
+			color: #666;
+		}
+		span {
+			direction: inline-block;
+			padding: 4px 12px;
+			font-size: .6rem;
+			color: #fff;
+			background: @themeColor;
+			border-radius: 10px;
+		}
+	}
+	.cell-menu {
+		margin-top: 8px;
+		li {
+			background: #fff;
+			color: #666;
+			padding: 12px 10px;
+			border-bottom: 1px solid #f1f1f1;
+			.red {
+				margin-right: 10px;
+			}
+		}
+	}
+}
+//推广中心->我的团队
+.team {
+	.tab {
+		position: fixed;
+		top : 46px;
+		width: 100%;
+		z-index: 1;
+		.van-tabs__line {
+			top: 120px;
+			z-index: 2;
+		}
+	}
+	.member-list {
+		margin-top: 6px;
+		img {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			margin-right: 20px;
+		}
+		li {
+			padding: 10px;
+			background: #fff;
+			border-bottom: 1px solid #f1f1f1;
+			div {
+				flex: 1;
+			}
+			h1 {
+				font-size: 13px;
+				margin-bottom: 10px;
+			}
+			p {
+				color: #ccc;
+				font-size: .6rem;
+			}
+		}
+	}
+}
+//推广中心->销量排行
+.profit-rank {
+	.shop-list {
+		img {
+			width: 50px;
+			border-radius: 50%;
+		}
+	}
+}
+//购物车
+.shop-car {
+	padding-bottom: 120px;
+	.shop-car-list {
+		.van-checkbox {
+			margin-right: 10px;
+		}
+		img {
+			width: 60px;
+			margin-right: 10px;
+			border-radius: 5px;
+		}
+		li {
+			padding: 10px;
+			background: #fff;
+			border-bottom: 1px solid #f1f1f1;
+		}
+		.product-info {
+			flex: 1;
+			h1,p {
+				margin-bottom: 6px;
+			}
+			p {
+				font-size: 12px;
+			}
+		}
+	}
+	footer {
+		position: fixed;
+		bottom: 51px;
+		height: 40px;
+		z-index: 1;
+		background: #fff;
+		padding-left:10px;
+		width: ~"calc(100% - 10px)";
+		.van-checkbox {
+			margin-right: 15px;
+		}
+		.btns {
+			height: 100%;
+			text-align:center;
+			width: 140px;
+			line-height: 40px;
+			color :#fff;
+			dt {
+				width: 50%;
+				&:nth-of-type(1) {
+					height: 100%;
+					background: orange;
+				}
+				&:nth-of-type(2) {
+					height: 100%;
+					background: red;
+				}
+			}
+		}
+	}
+}

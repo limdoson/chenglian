@@ -16,7 +16,17 @@ let router = new Router({
 			children : [
 				{
 					path : '',
+					meta : {
+						title : '诚联商城'
+					},
 					component : () => import('@v/Index'),
+				},
+				{
+					path : 'shop-car',
+					meta : {
+						title : '购物车'
+					},
+					component : () => import('@v/ShopCar'),
 				},
 				{
 					path : 'user-center',
@@ -24,6 +34,13 @@ let router = new Router({
 						title : '用户中心'
 					},
 					component : () => import('@v/UserCenter'),
+				},
+				{
+					path : 'distribution',
+					meta : {
+						title : '推广中心'
+					},
+					component : () => import('@v/Distribution'),
 				}
 			]
 		},

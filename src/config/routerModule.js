@@ -183,5 +183,53 @@ const router_module = [
 			title :'用户信息完善'
 		}
 	},
+	//商品分类
+	{
+		path : '/product-cla',
+		component : () => import('@v/product/ProductCla'),
+		meta : {
+			title :'商品分类'
+		}
+	},
+	//附近店铺
+	{
+		path : '/nearby-shops',
+		component : () => import('@v/shop/NearbyShops'),
+		meta : {
+			title :'附近商家'
+		}
+	},
+	//忘记密码
+	{
+		path : '/forget-pwd',
+		component : () => import('@v/user-center/ForgetPwd'),
+		meta : {
+			title :'忘记密码'
+		}
+	},
+	//推广中心->我的团队
+	{
+		path : '/team/:flag?',
+		component : () => import('@v/distribution/Team'),
+		meta : {
+			title :'我的团队'
+		}
+	},
+	//推广中心->收益记录
+	{
+		path : '/profit-logs',
+		component : () => import('@v/distribution/ProfitLogs'),
+		meta : {
+			title :'收益记录'
+		}
+	},
+	//推广中心->收益排行
+	{
+		path : '/profit-rank',
+		component : () => import('@v/distribution/ProfitRank'),
+		meta : {
+			title :'销量排行'
+		}
+	},
 ]
 export default router_module;

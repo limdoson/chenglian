@@ -8,14 +8,14 @@
 			<i class="iconfont">&#xe65c;</i>
 			<p>购物车</p>
 		</router-link>
-		<li class='logo'>
+		<!-- <li class='logo'>
 			<img src="../assets/img/logo.jpg" alt="">
-		</li>
+		</li> -->
 		<router-link tag='li' to='/user-center'>
 			<i class="iconfont">&#xe608;</i>
 			<p>我的</p>
 		</router-link>
-		<router-link tag='li' to='/extension'>
+		<router-link tag='li' to='/distribution'>
 			<i class="iconfont">&#xe600;</i>
 			<p>推广中心</p>
 		</router-link>

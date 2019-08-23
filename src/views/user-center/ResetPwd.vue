@@ -1,6 +1,6 @@
 <template>
 	<div class="reset-pwd page">
-		<cl-header></cl-header>
+		<cl-header rightText='忘记密码?' @onClickRight='onClickRight'></cl-header>
 		<van-cell-group>
 			<van-field required label='原始密码' type='password' placeholder='请输入原始密码'></van-field>
 			<van-field required label='新密码' type='password' placeholder='请输入新密码'></van-field>
@@ -15,6 +15,11 @@
 		data () {
 			return {
 				
+			}
+		},
+		methods: {
+			onClickRight () {
+				this.$router.push('/forget-pwd')
 			}
 		}
 	}

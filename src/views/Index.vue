@@ -6,19 +6,19 @@
 		<marquee class='notice' behavior="" direction="left">首页公告</marquee>
 		<!-- 图片导航 -->
 		<ul class="img-menu s-a">
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/product-cla'>
 				<img src="../assets/img/cls.png" alt="">
 				<p>所有商品</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/nearby-shops'>
 				<img src="../assets/img/shop.png" alt="">
-				<p>附近店铺</p>
+				<p>附近商家</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/shop-apply'>
 				<img src="../assets/img/apply.png" alt="">
 				<p>申请开店</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<router-link tag='li' to='/article-detail'>
 				<img src="../assets/img/farm.png" alt="">
 				<p>诚联农场</p>
 			</router-link>
