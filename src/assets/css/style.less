@@ -5,6 +5,7 @@
 }
 //首页样式
 .index {
+	padding-top : 40px;
 	.img-menu {
 		width: 100%;
 		margin-top: 6px;
@@ -51,10 +52,10 @@
 			margin-bottom: 6px;
 		}
 		p {
-			font-size: .5em;
+			font-size: 12px;
 			.red();
 			span {
-				font-size: .9em;
+				font-size: 12px;
 			}
 		}
 	}
@@ -254,6 +255,18 @@
 			color: #222;
 			.iconfont {
 				font-size: 14px;
+			}
+			margin-bottom: 6px;
+		}
+		.market-price {
+			font-size: 12px;
+			color: #ccc;
+			text-decoration: line-through;
+		}
+		.shop-name {
+			.iconfont {
+				color: red;
+				margin-right: 10px;
 			}
 		}
 	}
@@ -474,7 +487,7 @@
 					border-radius: 2px;
 				}
 				p {
-					font-size: .4rem;
+					font-size: .8rem;
 				}
 			}
 		}
@@ -496,6 +509,9 @@
 	.van-dropdown-item__option {
 		font-size: 13px;
 		padding : 5px 16px;
+	}
+	.van-ellipsis {
+		// color: @themeColor;
 	}
 }
 //推广中心
@@ -640,6 +656,53 @@
 					background: red;
 				}
 			}
+		}
+	}
+}
+.search-page {
+	padding-top: 40px;
+	.logs {
+		width: 80%;
+		margin : 10px auto;
+		flex-wrap : wrap;
+		li {
+			padding : 4px 12px;
+			background: #ccc;
+			font-size: 12px;
+			margin : 8px 4px;
+			border-radius: 5px;
+			color: #7e7e7e;
+		}
+	}
+	.clear-logs {
+		padding : 10px;
+		.iconfont {
+			margin-right: 10px;
+		}
+	}
+}
+//我的店铺
+.my-shop {
+	header {
+		padding : 15px 20px;
+		background: @themeColor;
+		color: #fff;
+		img {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			margin-right: 15px;
+			border : 2px solid #fff;
+		}
+		h1 {
+			p {
+				margin-bottom: 6px;
+			}
+		}
+		.level {
+			padding: 4px 8px;
+			background: orange;
+			border-radius: 10px;
 		}
 	}
 }

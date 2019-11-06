@@ -14,6 +14,7 @@
 					<p class="s-b list-item-buttom">
 						<span class="price">
 							￥<a>12.00</a>
+							<span class="market-price">100.00</span>
 						</span>
 						<span>
 							送<a>5</a>%

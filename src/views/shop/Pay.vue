@@ -11,16 +11,6 @@
 				<span>{{input_result}}</span>
 			</div>
 		</header>
-		<!-- <van-radio-group v-model="radio">
-			<van-cell-group>
-				<van-cell title="微信支付" clickable @click="radio = 1">
-					<van-radio slot="right-icon" :name="1" checked-color="#07c160"/>
-				</van-cell>
-				<van-cell title="消费金充值" clickable @click="radio = 2">
-					<van-radio slot="right-icon" :name="2" checked-color="#07c160" />
-				</van-cell>
-			</van-cell-group>
-		</van-radio-group> -->
 		<div class="key-board" v-if='show'>
 			<div class="f-s">
 				<ul class="key-board-list f-s">
@@ -55,6 +45,13 @@
 				</div>
 			</div>
 		</div>
+		<!-- 支付方式选择 -->
+		<van-action-sheet
+			v-model="show_pay_type"
+			:actions="actions"
+			@select="onSelect"
+			cancel-text="取消"
+		/>
 	</div>
 </template>
 
@@ -66,6 +63,29 @@
 				radio : 1,
 				input_result : null,//输入结果
 				show : true,
+				//支付方式相关
+				show_pay_type : true,//是否显示支付方式选择
+				actions : [
+					{
+						name : '微信支付',
+						value : 1
+					},{
+						name : '支付宝支付',
+						value : 2
+					},{
+						name : '消费金',
+						value : 3,
+						subname : '可用：10.00'
+					},{
+						name : '现金余额',
+						value :4,
+						subname : '可用：10.00'
+					},{
+						name : '提现余额',
+						value : 5,
+						subname : '可用：10.00'
+					}
+				]
 			}
 		},
 		created () {
@@ -130,6 +150,10 @@
 				if (/\.$/.test(this.input_result)) {
 					this.input_result = this.input_result.replace(/\./,'');
 				}
+			},
+			//选择支付方式
+			onSelect () {
+				
 			}
 		},
 	}

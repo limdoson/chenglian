@@ -1,5 +1,7 @@
 <template>
 	<div class="index">
+		<!-- 搜索 -->
+		<search readonly @onClick='toSearchPage'></search>
 		<!-- 轮播图 -->
 		<swiper></swiper>
 		<!-- 公告 -->
@@ -32,8 +34,9 @@
 
 <script>
 	import Swiper from '@c/Swiper'
+	import Search from '@c/Search'
 	export default {
-		components: {Swiper},
+		components: {Swiper,Search},
 		data () {
 			return {
 				
@@ -42,8 +45,25 @@
 		created () {
 			
 		},
+		mounted () {
+			// window.onscroll = () => {
+			// 	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			// 	var scrollHeight = window.innerHeight;
+			// 	var dcHeight = document.body.clientHeight;
+			// 	
+			// 	if ((scrollTop + scrollHeight) === (dcHeight)) {
+			// 		alert('加载更多')
+			// 	}
+			// 	
+			// }
+		},
 		activated () {
 			
+		},
+		methods :{
+			toSearchPage () {
+				this.$router.push('/search')
+			}
 		}
 	}
 </script>

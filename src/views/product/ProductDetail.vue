@@ -1,6 +1,6 @@
 <template>
 	<div class="product-detail">
-		<cl-header></cl-header>
+		<cl-header ></cl-header>
 		<swiper></swiper>
 		<!-- 商品信息 -->
 		<div class="product-info">
@@ -8,6 +8,7 @@
 			<p>商品描述信息</p>
 			<p>
 				￥<span class="red">1.00</span>
+				<span class="market-price">10.00</span>
 			</p>
 			<dl class="s-b">
 				<dt>
@@ -19,14 +20,19 @@
 					库存：1000
 				</dt>
 			</dl>
+			<router-link class="shop-name f-s" tag='h1' to='/shop-detail'>
+				<i class="iconfont">&#xe79f;</i>
+				商家名称
+			</router-link>
 		</div>
 		<!-- 图文详情与评价 -->
-		<div class="detail-and-comments">
+		<div class="details">
+			图文详情
+		</div>
+		<!-- <div class="detail-and-comments">
 			<van-tabs v-model="active">
 				<van-tab title="商品详情">
-					<div class="details">
-						图文详情
-					</div>
+					
 				</van-tab>
 				<van-tab title="评价">
 					<ul class="comments">
@@ -45,7 +51,7 @@
 					</router-link>
 				</van-tab>
 			</van-tabs>
-		</div>
+		</div> -->
 		<!-- 底部导航菜单 -->
 		<van-goods-action>
 			<!-- <van-goods-action-icon
@@ -126,7 +132,7 @@
 		data () {
 			return {
 				active : 0,
-				show : true,
+				show : false,
 				value : 1
 			}
 		},

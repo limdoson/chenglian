@@ -231,5 +231,37 @@ const router_module = [
 			title :'销量排行'
 		}
 	},
+	//搜索
+	{
+		path : '/search',
+		component : () => import('@v/common-page/Search'),
+		meta : {
+			title :'搜索'
+		}
+	},
+	//我的店铺
+	{
+		path : '/my-shop',
+		component : () => import('@v/shop/MyShop'),
+		meta : {
+			title :'我的店铺'
+		}
+	},
+	//我的店铺->收款二维码
+	{
+		path : '/payment-code',
+		component : () => import('@v/shop/PaymentCode'),
+		meta : {
+			title :'收款二维码'
+		}
+	},
+	//我的店铺->收款记录
+	{
+		path : '/payment-logs',
+		component : () => import('@v/shop/PaymentLogs'),
+		meta : {
+			title :'收款记录'
+		}
+	},
 ]
 export default router_module;

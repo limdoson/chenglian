@@ -20,6 +20,12 @@
 			<van-field v-model="value" type='number' placeholder="请输入充值金额" />
 		</van-cell-group>
 		<cl-pri-btn >立即充值</cl-pri-btn>
+		<van-action-sheet
+			v-model="show_pay_type"
+			:actions="actions"
+			@select="onSelect"
+			cancel-text="取消"
+		/>
 	</div>
 </template>
 
@@ -28,12 +34,26 @@
 		data () {
 			return {
 				radio : 1,
-				value : null
+				value : null,
+				//支付方式相关
+				show_pay_type : true,//是否显示支付方式选择
+				actions : [
+					{
+						name : '微信支付',
+						value : 1
+					},{
+						name : '支付宝支付',
+						value : 2
+					}
+				]
 			}
 		},
 		methods: {
 			toRechargLog () {
 				this.$router.push('/recharge-log')
+			},
+			onSelect () {
+				
 			}
 		}
 	}

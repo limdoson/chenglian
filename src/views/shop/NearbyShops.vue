@@ -2,7 +2,9 @@
 	<div class="nearby-shops page">
 		<cl-header></cl-header>
 		<van-dropdown-menu>
-			<van-dropdown-item disabled  v-model="adr_flag" :options="adr_option"/>
+			<van-dropdown-item :title='area'  ref='dropdownMenuItem'>
+				<van-area :area-list="areaList" @cancel='cancleChose' @confirm='consirmChose'/>
+			</van-dropdown-item>
 			<van-dropdown-item v-model="shop_type" :options="shop_type_option" />
 		</van-dropdown-menu>
 		<cl-list>
@@ -24,18 +26,13 @@
 </template>
 
 <script>
+	import areaList from '@u/area'
 	export default {
 		components: {},
 		data () {
 			return {
-				adr_flag : 0,
-				adr_option : [
-					{
-						text :'厦门市思明区',
-						value : 0,
-						
-					}
-				],
+				areaList,
+				area : '福建省厦门市思明区',
 				shop_type : 0,
 				shop_type_option : [
 					{
@@ -56,7 +53,13 @@
 		},
 		
 		methods : {
-			
+			cancleChose () {
+				this.$refs.dropdownMenuItem.toggle(false)
+			},
+			consirmChose (result) {
+				this.area = result[0].name + result[1].name + result[2].name ;
+				this.$refs.dropdownMenuItem.toggle(false)
+			}
 		},
 	}
 </script>

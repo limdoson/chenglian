@@ -48,13 +48,13 @@
 					<i class="iconfont">&#xe7f9;</i>
 				</p>
 			</router-link>
-			<router-link tag='li' to='/profit-rank' class='s-b'>
+			<!-- <router-link tag='li' to='/profit-rank' class='s-b'>
 				<h1>团队销量排行</h1>
 				<p class="f-s">
 					<span>查看</span>
 					<i class="iconfont">&#xe7f9;</i>
 				</p>
-			</router-link>
+			</router-link> -->
 		</ul>
 	</div>
 </template>

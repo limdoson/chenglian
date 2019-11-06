@@ -63,6 +63,10 @@
 				<img src="../assets/img/shop.png" alt="">
 				<p>我要开店</p>
 			</router-link>
+			<router-link tag='li' to='/my-shop'>
+				<img src="../assets/img/shop.png" alt="">
+				<p>我的店铺</p>
+			</router-link>
 			<router-link tag='li' to='/adr-list'>
 				<img src="../assets/img/address.png" alt="">
 				<p>地址管理</p>
