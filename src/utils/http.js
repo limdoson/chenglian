@@ -32,8 +32,11 @@ class Http extends Vue {
         return new Promise((resolve, reject) => {
             http({
                 method: 'post',
-                url,
-                params, 
+                url : `/api${url}`,
+                params : process.env.NODE_ENV == 'development' ? Object.assign({
+					is_test : 1,
+					user_id : 2665
+				},params) : params, 
             }).then(res => { 
 				
                 //判断code

@@ -3,9 +3,9 @@
 		<!-- 搜索 -->
 		<search readonly @onClick='toSearchPage'></search>
 		<!-- 轮播图 -->
-		<swiper></swiper>
+		<swiper :list='flash'></swiper>
 		<!-- 公告 -->
-		<marquee class='notice' behavior="" direction="left">首页公告</marquee>
+		<marquee class='notice' behavior="" direction="left">{{notice}}</marquee>
 		<!-- 图片导航 -->
 		<ul class="img-menu s-a">
 			<router-link tag='li' to='/product-cla'>
@@ -25,10 +25,10 @@
 				<p>诚联农场</p>
 			</router-link>
 		</ul>
-		<!-- 栏目列表 -->
-		<cl-list></cl-list>
-		<cl-list title='今天推荐'></cl-list>
-		<cl-list title='今日优选'></cl-list>
+		<!-- 推荐商家 -->
+		<cl-list title='推荐商家' :list='this.shop' type='shop'></cl-list>
+		<!-- 推荐商品 -->
+		<cl-load-list></cl-load-list>
 	</div>
 </template>
 
@@ -39,11 +39,22 @@
 		components: {Swiper,Search},
 		data () {
 			return {
+				notice : null,//公告内容
 				
+				shop : null,//首页推荐商家
+				flash : null,//轮播图
 			}
 		},
 		created () {
-			
+			this.http.post('/api/mall/home',{
+				
+			}).then(res => {
+				
+				this.notice = res.result.notice;
+				this.product = res.result.product;
+				this.shop = res.result.shop;
+				this.flash = res.result.flash;
+			})
 		},
 		mounted () {
 			// window.onscroll = () => {

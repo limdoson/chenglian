@@ -1,14 +1,18 @@
 <template>
 	<div class="product-detail">
 		<cl-header ></cl-header>
-		<swiper></swiper>
+		<van-swipe :autoplay='2000'  indicator-color="white" >
+			<van-swipe-item v-for='item in slide' :key='item'>
+				<img :src="item" alt="">
+			</van-swipe-item>
+		</van-swipe>
 		<!-- 商品信息 -->
 		<div class="product-info">
-			<h1>商品名称</h1>
-			<p>商品描述信息</p>
+			<h1>{{title}}</h1>
+			<p>{{descript}}</p>
 			<p>
-				￥<span class="red">1.00</span>
-				<span class="market-price">10.00</span>
+				￥<span class="red">{{member_price}}</span>
+				<span class="market-price">{{market_price}}</span>
 			</p>
 			<dl class="s-b">
 				<dt>
@@ -17,17 +21,17 @@
 				</dt>
 				<dt>
 					<i class="iconfont">&#xe609;</i>
-					库存：1000
+					库存：{{stock_number}}
 				</dt>
 			</dl>
-			<router-link class="shop-name f-s" tag='h1' to='/shop-detail'>
+			<router-link class="shop-name f-s" tag='h1' :to='`/shop-detail/${shop_id}`'>
 				<i class="iconfont">&#xe79f;</i>
-				商家名称
+				{{shop_name}}
 			</router-link>
 		</div>
 		<!-- 图文详情与评价 -->
-		<div class="details">
-			图文详情
+		<div class="details" v-html='content'>
+			
 		</div>
 		<!-- <div class="detail-and-comments">
 			<van-tabs v-model="active">
@@ -76,9 +80,8 @@
 			/>
 		</van-goods-action>
 		<!-- 商品规格属数量性选择 -->
-		<van-popup v-model="show" position='bottom'>
+		<!-- <van-popup v-model="show" position='bottom'>
 			<div class="chose-product-attr">
-				<!-- 基本信息 -->
 				<div class="popup-header f-s">
 					<img src="../../assets/img/2.jpg" alt="">
 					<div class="basic-info">
@@ -94,7 +97,6 @@
 						</div>
 					</div>
 				</div>
-				<!-- 规格属性 -->
 				<div class="attr">
 					<h1>颜色</h1>
 					<ul class='attr-list f-s'>
@@ -109,17 +111,15 @@
 						<li>M</li>
 					</ul>
 				</div>
-				<!-- 购买数量 -->
 				<van-cell title="购买数量" >
 					<van-stepper v-model="value" step="1" slot='right-icon'/>
 				</van-cell>
-				<!-- 底部按钮 -->
 				<ul class="attr-btns">
 					<li>加入购物车</li>
 					<li @click="$router.push('/confirm-order')">立即购买</li>
 				</ul>
 			</div>
-		</van-popup>
+		</van-popup> -->
 	</div>
 </template>
 
@@ -131,15 +131,50 @@
 		},
 		data () {
 			return {
+				slide : null,//商品轮播图
+				title : null,//名称
+				descript : null,//描述
+				market_price : null,//市场价
+				member_price : null,//会员价
+				stock_number : null,//库存
+				shop_id : null,//商家id
+				shop_name : null,//商家名称
+				content : null,//详情内容
 				active : 0,
 				show : false,
 				value : 1
 			}
 		},
+		created (){
+			this.http.post('/api/product/detail',{
+				id : this.$route.params.id,
+			}).then(res =>{
+				
+				this.slide = res.result.slide;
+				this.title = res.result.title;
+				this.descript = res.result.descript;
+				
+				this.market_price = res.result.market_price;
+				this.member_price = res.result.member_price;
+				this.stock_number = res.result.stock_number;
+				this.shop_id = res.result.shop_id;
+				this.shop_name = res.result.shop_name;
+				this.content = res.result.content;
+				console.log(this.slide)
+			})
+		},
 		methods :{
 			//加入购物车
 			joinShopCar () {
-				this.show = true;
+				// this.show = true;
+				this.http.post('/api/cart/create',{
+					id :this.$route.params.id,
+					property_id : 0,
+					number :1,
+					shop_id : this.shop_id
+				}).then(res => {
+					this.utils.msg('添加成功')
+				})
 			},
 			//立即购买
 			buyNow () {

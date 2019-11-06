@@ -29,6 +29,9 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 
+import config from '@cfg/index'
+
+
 //lazy指令
 import { Lazyload } from 'vant';
 Vue.use(Lazyload);

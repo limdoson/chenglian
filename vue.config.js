@@ -8,10 +8,20 @@ function resolve(dir) {
 module.exports = {
     // 基本路径
     publicPath: process.env.NODE_ENV == 'development' ? './' : '/wap/',
-    devServer: {
-        port: 8080,
-        open: true
-    },
+      devServer: {
+          port: 8888,
+          open: true,
+    		proxy :  process.env.NODE_ENV == 'development' ? {
+    			'/api' : {
+    				target : 'http://wap.xmclsh.com',
+    				changeOrigin : true,
+    				ws : true,
+    				pathRewrite : {
+    					"^/api" : ''
+    				}
+    			} 
+    		} : null
+      },
     configureWebpack: {
 //      plugins: [
 //          new webpack.ProvidePlugin({
