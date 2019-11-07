@@ -3,11 +3,11 @@
 		<ul class="shop-car-list">
 			<li class='f-s' v-for="item in list" :key='item.id'>
 				<van-checkbox v-model='item.checked' checked-color="#07c160" @change='itemChange'></van-checkbox>
-				<img src="../assets/img/2.jpg" alt="">
+				<img :src="item.img_url" alt="">
 				<div class="product-info">
-					<h1>商品名称</h1>
+					<h1>{{item.title}}</h1>
 					<p class="attr s-b">
-						<span>已选规格</span>
+						<!-- <span>已选规格</span> -->
 						<span class="red">单价￥{{item.price}}</span>
 					</p>
 					<p class="s-b">
@@ -65,10 +65,17 @@
 			}
 		},
 		created () {
-			
+			this.initData()
 		},
 		
 		methods : {
+			initData () {
+				this.http.post('/api/cart/index',{
+					
+				}).then(res =>{
+					this.list = res.result;
+				})
+			},
 			//勾选某个商品
 			itemChange (checked) {
 				this.selected_all = this.list.every(item => {

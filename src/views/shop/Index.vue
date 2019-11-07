@@ -15,7 +15,7 @@
 				</div>
 			</van-tab>
 			<van-tab title="全部商品">
-				<cl-load-list url='/api/shop/detail'></cl-load-list>
+				<cl-load-list api-url='/api/shop/detail'></cl-load-list>
 			</van-tab>
 			<van-tab title="商家活动">
 				图文介绍

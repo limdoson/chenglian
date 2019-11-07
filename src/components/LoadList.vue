@@ -25,8 +25,8 @@
 
 <script>
 	export default {
-		prop : {
-			url : {
+		props : {
+			apiUrl : {
 				default : '/api/mall/home'
 			}
 		},
@@ -36,20 +36,21 @@
 				finished : false,
 				page : 1,
 				limit : 10,
-				product : null
+				product : null,
 			}
 		},
 		created () {
-			
+			console.log(this.url)
 		},
 		activated() {
 			
 		},
 		methods: {
 			onLoad () {
-				this.http.post(this.url,{
+				this.http.post(this.apiUrl,{
 					page : this.page,
-					limit :this.limit
+					limit :this.limit,
+					id :this.$route.params.id ? this.$route.params.id : null
 				}).then(res => {
 					let list = res.result.product;
 					

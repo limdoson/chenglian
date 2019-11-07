@@ -23,7 +23,7 @@
 		<div class="sub-cla">
 			<img :src="type_logo" alt="" class="ad-img">
 			<ul class="sub-cla-list f-s">
-				<router-link tag='li' to='/product-detail' v-for='item in children' :key='item.id'>
+				<router-link tag='li' :to='`/product-list/${item.id}`' v-for='item in children' :key='item.id'>
 					<img :src="item.type_logo" alt="">
 					<p>{{item.type_name}}</p>
 				</router-link>
@@ -56,7 +56,9 @@
 		
 		methods : {
 			barClick (item,index){
-				this.activeKey = index
+				this.activeKey = index;
+				this.children = item.children;
+				this.type_logo = item.type_logo;
 			}
 		},
 	}

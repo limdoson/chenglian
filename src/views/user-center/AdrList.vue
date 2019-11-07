@@ -1,12 +1,14 @@
 <template>
 	<div class="adr-list page">
 		<cl-header rightText='添加地址' @onClickRight='test'></cl-header>
-		<none></none>
+		<none v-if='!list'></none>
 		<ul class="log-list">
-			<li>
-				<h1>林杜森-15960209969</h1>
-				<p>福建省厦门市思明区前埔东路567号</p>
-			</li>
+			<router-link v-for='item in list' :key='item.id' tag='li' :to='`/adr-add/${item.id}`'>
+				<h1>{{item.real_name}}-{{item.telephone}}</h1>
+				<p>
+					{{item.province}}{{item.city}}{{item.didistrict}}{{item.address}}
+				</p>
+			</router-link>
 		</ul>
 	</div>
 </template>
@@ -15,8 +17,15 @@
 	export default {
 		data () {
 			return {
-				
+				list : null,
 			}
+		},
+		created () {
+			this.http.post('/api/address/list',{
+				
+			}).then(res => {
+				this.list = res.result;
+			})
 		},
 		methods: {
 			test(){

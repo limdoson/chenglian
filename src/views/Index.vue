@@ -28,7 +28,7 @@
 		<!-- 推荐商家 -->
 		<cl-list title='推荐商家' :list='this.shop' type='shop'></cl-list>
 		<!-- 推荐商品 -->
-		<cl-load-list></cl-load-list>
+		<cl-load-list api-url='/api/mall/home'></cl-load-list>
 	</div>
 </template>
 

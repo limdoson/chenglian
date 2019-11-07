@@ -263,5 +263,13 @@ const router_module = [
 			title :'收款记录'
 		}
 	},
+	//商品分类->商品分类商品列表
+	{
+		path : '/product-list/:id',
+		component : () => import('@v/product/ProductList'),
+		meta : {
+			title :'商品列表'
+		}
+	}
 ]
 export default router_module;

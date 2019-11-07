@@ -5,8 +5,8 @@
 				<div class="f-s">
 					<img src="../assets/img/2.jpg" alt="">
 					<h1>
-						<p>15960209969-林杜森</p>
-						<p>编号：1</p>
+						<p>{{telephone}}-{{real_name ? real_name : nickname}}</p>
+						<p>编号：{{id}}</p>
 					</h1>
 				</div>
 				<router-link tag='i' class='iconfont' to='/user-info'>&#xe7f9;</router-link>
@@ -18,29 +18,29 @@
 				<h1>
 					消费金账户
 				</h1>
-				<p>￥<span>1.00</span></p>
+				<p>￥<span>{{consume_account}}</span></p>
 			</router-link>
 			<router-link tag='li' to='/cash-balance'>
 				<h1>
 					现金余额
 				</h1>
-				<p>￥<span>1.00</span></p>
+				<p>￥<span>1{{balance_money}}</span></p>
 			</router-link>
 			<router-link tag='li' to='/cash-withdrawal'>
 				<h1>
 					提现余额
 				</h1>
-				<p>￥<span>1.00</span></p>
+				<p>￥<span>{{remain_income}}</span></p>
 			</router-link>
 			<router-link tag='li' to='/cash-withdrawal'>
 				<h1>
 					补点余额
 				</h1>
-				<p>￥<span>1.00</span></p>
+				<p>￥<span>{{return_remain_money}}</span></p>
 			</router-link>
 		</ul>
 		<!-- 公告 -->
-		<router-link tag='marquee' class='notice' behavior="" direction="left" style="margin-top: 8px;" to='/article-detail'>会员中心公告</router-link>
+		<router-link tag='marquee' class='notice' behavior="" direction="left" style="margin-top: 8px;" to='/article-detail'>{{notice}}</router-link>
 		<!-- <marquee ></marquee> -->
 		
 		<!-- 订单tab -->
@@ -94,7 +94,42 @@
 		components: {orderTab},
 		data () {
 			return {
-				
+				id : null,
+				nickname : null,
+				avatar : null,
+				telephone : null,
+				real_name : null,
+				consume_account : null,
+				balance_money : null,
+				remain_income : null,
+				return_remain_money : null,
+				shop : {//不是商家返回null
+					is_audit : null,//1为审核通过,0为未通过
+					id : null,
+				},
+				notice : null
+			}
+		},
+		created () {
+			this.initData()
+		},
+		methods : {
+			initData () {
+				this.http.post('/api/user/index',{
+					
+				}).then(res => {
+					this.id = res.result.user.id;
+					this.nickname = res.result.user.nickname;
+					this.avatar = res.result.user.avatar;
+					this.telephone = res.result.user.telephone;
+					this.real_name = res.result.user.real_name;
+					this.consume_account = res.result.user.consume_account;
+					this.balance_money = res.result.user.balance_money;
+					this.remain_income = res.result.user.remain_income;
+					this.return_remain_money = res.result.user.return_remain_money;
+					this.shop = res.result.shop;
+					this.notice = res.result.notice;
+				})
 			}
 		}
 	}
