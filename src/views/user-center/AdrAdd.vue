@@ -91,7 +91,7 @@
 						city : this.city,
 						district :this.district,
 						address :this.address,
-						is_default : this.is_default
+						is_default : this.is_default ? 1 : 0
 					}).then(res => {
 						this.utils.msg('编辑成功',()=>{
 							this.$router.back();
@@ -105,7 +105,7 @@
 						city : this.city,
 						district :this.district,
 						address :this.address,
-						is_default : this.is_default
+						is_default : this.is_default ? 1 : 0
 					}).then(res => {
 						this.utils.msg('添加成功',()=>{
 							this.$router.back();

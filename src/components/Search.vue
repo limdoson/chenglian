@@ -28,7 +28,7 @@
 			}
 		},
 		created  () {
-			console.log(this.readonly)
+			// console.log(this.readonly)
 		},
 		//mounted () {},
 		methods : {

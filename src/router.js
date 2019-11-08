@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Store from './store'
 import http from './utils/http.js'
 import router_module from './config/routerModule.js'
+
+import wxShare from '@u/wx'
+
 Vue.use(Router)
 
 let router = new Router({
@@ -53,13 +56,23 @@ let router = new Router({
 // 	
 // })
 
-router.afterEach((to, from) => {
-	if (to.meta.title) {
-		document.title = to.meta.title;
-	}
-	
-	
+router.afterEach((to,from) => {
+    /*
+     * 将页面title设置为meta中的title
+     */
+    if(to.meta.title) {
+        window.document.title = to.meta.title;
+    }
+    /*
+     * 如果页面存在滚动高度，则将滚动高度清0
+     */
+//  if ($(document).scrollTop()) {
+//      $(document).scrollTop(0)
+//  }
+    /*
+     * 如果页面有要求设置分享参数
+     */
+    wxShare.appConfig();
 })
-
 
 export default router;

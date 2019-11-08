@@ -120,6 +120,13 @@
 				</ul>
 			</div>
 		</van-popup> -->
+		<van-popup v-model='show_chose_number' position='bottom'>
+			<div class="s-b" style='background: #fff;padding : 20px;'>
+				<span>选择购买数量</span>
+				<van-stepper button-size='20' v-model="number" />
+			</div>
+			<cl-pri-btn @click.native='confirmBuyDirect'>确认购买</cl-pri-btn>
+		</van-popup>
 	</div>
 </template>
 
@@ -142,7 +149,9 @@
 				content : null,//详情内容
 				active : 0,
 				show : false,
-				value : 1
+				value : 1,
+				show_chose_number : false,
+				number : 1
 			}
 		},
 		created (){
@@ -160,7 +169,6 @@
 				this.shop_id = res.result.shop_id;
 				this.shop_name = res.result.shop_name;
 				this.content = res.result.content;
-				console.log(this.slide)
 			})
 		},
 		methods :{
@@ -176,9 +184,21 @@
 					this.utils.msg('添加成功')
 				})
 			},
-			//立即购买
 			buyNow () {
-				this.show = true;
+				this.show_chose_number = true
+			},
+			//立即购买
+			confirmBuyDirect () {
+				let select_info = [
+					{
+						id : this.$route.params.id,
+						number : this.number,
+						property_id : 0,
+						shop_id : this.shop_id
+					}
+				]
+				localStorage.setItem('select_info',JSON.stringify(select_info));
+				this.$router.push('/confirm-order')
 			}
 		}
 	}

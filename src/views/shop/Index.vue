@@ -21,7 +21,7 @@
 				图文介绍
 			</van-tab>
 		</van-tabs>
-		<router-link tag='footer' to='/pay' class='footer'>
+		<router-link tag='footer' :to='`/pay/${$route.params.id}`' class='footer'>
 			<i class="iconfont">&#xe612;</i>
 			向商家付款
 		</router-link>

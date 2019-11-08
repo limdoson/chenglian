@@ -38,13 +38,7 @@
 				//支付方式相关
 				show_pay_type : false,//是否显示支付方式选择
 				actions : [
-					{
-						name : '微信支付',
-						value : 1
-					},{
-						name : '支付宝支付',
-						value : 2
-					}
+					
 				],
 				limit_money : null,
 				send_rate : null,
@@ -62,12 +56,24 @@
 					this.limit_money = res.result.limit_money
 					this.send_rate = res.result.send_rate
 					this.client_type = res.result.client_type
+					if (this.client_type == 'officialAccount') {
+						this.actions.push({
+							name : '微信支付',
+							value :1
+						})
+					} else {
+						this.actions.push({
+							name : '支付宝支付',
+							value :2
+						})
+					}
 				})
 			},
 			toRechargLog () {
 				this.$router.push('/recharge-log')
 			},
 			onSelect ({value}) {
+				let me = this;
 				this.http.post('/api/user/recharge',{
 					pay_type : value,
 					record_type : this.record_type,
@@ -76,9 +82,20 @@
 					if (res.result.type == 'need_pay') {
 						let pay_data = res.result.pay_data;
 						//调起微信支付
-						
-						
-						
+						wx.chooseWXPay({
+							timestamp : pay_data.timeStamp,
+							appId : pay_data.appId,
+							nonceStr : pay_data.nonceStr,
+							package : pay_data.package,
+							signType : pay_data.signType,
+							paySign : pay_data.paySign,
+							success : pay => {
+								me.$router.replace('/pay-success')
+							},
+							fail : err => {
+								alert(JSON.stringify(err))
+							}
+						})
 					}
 				})
 			},

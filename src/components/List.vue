@@ -8,7 +8,7 @@
 		</slot>
 		<slot name='list'>
 			<ul class="list f-s">
-				<li v-for='(item, index) in list' :key='index' @click='itemClick'>
+				<li v-for='(item, index) in list' :key='index' @click='itemClick(item)'>
 					<img :src="item.shop_logo" alt="">
 					<h1 class="product-name">{{item.shop_name}}</h1>
 					<template v-if="type == 'product'">
@@ -23,9 +23,6 @@
 						</p>
 					</template>
 				</li>
-				<!-- <router-link tag='li' to='/product-detail' v-for='(item, index) in imgs' :key='index'>
-					
-				</router-link> -->
 			</ul>
 		</slot>
 		
@@ -56,11 +53,16 @@
 			}
 		},
 		created () {
-			console.log(this.list)
+			// console.log(this.list)
 		},
 		methods: {
-			itemClick () {
-				this.$router.push('/product-detail')
+			itemClick (item) {
+				if (this.type == 'shop') {
+					this.$router.push(`/shop-detail/${item.id}`)
+				} else {
+					this.$router.push(`/product-detail/${item.id}`)
+				}
+				
 			}
 		}
 	}

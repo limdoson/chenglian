@@ -2,6 +2,21 @@ import axios from 'axios'
 import Vue from 'vue';
 import Router from '@/router'
 import config from '@/config/index'
+
+
+function getCookie (name) {
+	var strcookie = document.cookie;//获取cookie字符串
+	var arrcookie = strcookie.split("; ");//分割
+	for ( var i = 0; i < arrcookie.length; i++) {
+		var arr = arrcookie[i].split("=");
+		if (arr[0] == name){
+			return arr[1];
+		}
+	}
+	return "";
+}
+
+
 /*
  * code
  * 	100   常规错误
@@ -31,14 +46,20 @@ class Http extends Vue {
 		// : Object.assign({url : location.href},params),
         return new Promise((resolve, reject) => {
             http({
+				headers :{
+					'authorization' : decodeURIComponent(getCookie('user_token'))
+				},
                 method: 'post',
-                url : `/api${url}`,
+                url : process.env.NODE_ENV  == 'development' ? `/api${url}` : url,
                 params : process.env.NODE_ENV == 'development' ? Object.assign({
 					is_test : 1,
-					user_id : 2665
-				},params) : params, 
+					user_id : 2665,
+					url : location.href
+				},params) : Object.assign({
+					url : location.href
+				},params), 
             }).then(res => { 
-				
+				// alert(getCookie('user_token'))
                 //判断code
                 switch (res.data.code) {
                     case 200: //正常，且有数据，或操作成功
@@ -72,12 +93,17 @@ class Http extends Vue {
 					case 404: //无数据或操作失败
 					    this.utils.msg('网络错误，请稍后重试')
 					    break;
+					case 301: //无数据或操作失败
+						location.href = res.data.result.redirect_uri
+					    // Router.replace()
+					    break;
                 }
 				
-            }).catch(err => {
-				this.utils.toast('系统错误')
-                console.log(err)
             })
+			// .catch(err => {
+			// 	this.utils.toast('系统错误')
+   //              console.log(err)
+   //          })
 
         })
     }

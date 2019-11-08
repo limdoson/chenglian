@@ -40,7 +40,7 @@
 			}
 		},
 		created () {
-			console.log(this.url)
+			// console.log(this.url)
 		},
 		activated() {
 			

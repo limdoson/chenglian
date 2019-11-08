@@ -3,7 +3,7 @@
 		<header>
 			<div class="s-b">
 				<div class="f-s">
-					<img src="../assets/img/2.jpg" alt="">
+					<img :src="avatar" alt="">
 					<h1>
 						<p>{{telephone}}-{{real_name ? real_name : nickname}}</p>
 						<p>编号：{{id}}</p>
@@ -79,10 +79,10 @@
 				<img src="../assets/img/pwd.png" alt="">
 				<p>修改密码</p>
 			</router-link>
-			<router-link tag='li' to=''>
+			<li @click="logout">
 				<img src="../assets/img/logout.png" alt="">
 				<p>退出登录</p>
-			</router-link>
+			</li>
 		</ul>
 		
 	</div>
@@ -129,6 +129,13 @@
 					this.return_remain_money = res.result.user.return_remain_money;
 					this.shop = res.result.shop;
 					this.notice = res.result.notice;
+				})
+			},
+			logout () {
+				this.http.post('/api/user/logout',{
+					
+				}).then(res =>{
+					this.utils.toast('退出成功')
 				})
 			}
 		}

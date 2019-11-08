@@ -28,7 +28,7 @@
 			if (this.autoplay) {
 				this.play = 3000
 			} 
-			console.log(this.list)
+			// console.log(this.list)
 		},
 		//mounted () {},
 		methods : {

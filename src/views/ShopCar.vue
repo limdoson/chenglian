@@ -99,7 +99,14 @@
 			},
 			//提交订单
 			submitOrder () {
-				this.$router.push('/confirm-order')
+				let list = this.list.filter(item => item.checked)
+				if (list.length  == 0) {
+					this.utils.toast('请选择要下单的商品');
+					return;
+				} 
+				localStorage.setItem('select_info',JSON.stringify(list))
+				// console.log(this.list.filter(item => item.checked))
+				this.$router.push(`/confirm-order`)
 			},
 			//工具函数，用来求选择商品的合计价格
 			getTotalPrice () {
