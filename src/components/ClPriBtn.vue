@@ -1,5 +1,5 @@
 <template>
-	<van-button round type="primary" size='small' block class='normal-btn' :disabled='disabled'>
+	<van-button round type="primary" size='small' block class='normal-btn' :disabled='disabled' style='height: 40px;'>
 		<slot></slot>
 	</van-button>
 </template>

@@ -2,18 +2,18 @@
 	<div class="cash-withdrawal page">
 		<cl-header rightText='提现记录' @onClickRight='clickRight'></cl-header>
 		<cl-tips>
-			提示：单笔最小金额额度：<span class="red">2</span>元，单笔最大提现额度：<span class="red">20000</span>元；每笔提现手续费：<span class="red">0</span>元，提现到账时间：<span class="red">1</span>天，若支付宝提现，单笔最小提现额为<span class="red">1000</span>元，微信单笔最大提现额：<span class="red">2000</span>元；信用卡提现<span class="red">3</span>天到账。
+			提示：单笔最小金额额度：<span class="red">{{config.withdraw_min_limit}}</span>元，单笔最大提现额度：<span class="red">{{config.withdraw_max_limit}}</span>元；每笔提现手续费：<span class="red">{{config.withdraw_rate}}</span>元，提现到账时间：<span class="red">{{config.withdraw_to_account}}</span>天，若支付宝提现，单笔最小提现额为<span class="red">{{config.withdraw_alipay_limit}}</span>元，微信单笔最大提现额：<span class="red">{{config.withdraw_wechat_limit}}</span>元；信用卡提现<span class="red">{{config.withdraw_to_credit}}</span>天到账。
 		</cl-tips>
 		<cl-notice-title label='选择出款账户'></cl-notice-title>
 		<van-radio-group v-model="radio">
 			<van-cell-group>
-				<van-cell title="提现余额：100.00" clickable @click="radio = 1">
+				<van-cell :title="`提现余额：${info.remain_income}`" clickable @click="radio = 1">
 					<van-radio slot="right-icon" :name="1" checked-color="#07c160"/>
 				</van-cell>
-				<van-cell title="现金余额：0.00" clickable @click="radio = 2">
+				<van-cell :title="`现金余额：${info.balance_money}`" clickable @click="radio = 2">
 					<van-radio slot="right-icon" :name="2" checked-color="#07c160" />
 				</van-cell>
-				<van-cell title="补点余额：0.00" clickable @click="radio = 3">
+				<van-cell :title="`补点余额：${info.return_remain_money}`" clickable @click="radio = 3">
 					<van-radio slot="right-icon" :name="3" checked-color="#07c160" />
 				</van-cell>
 			</van-cell-group>
@@ -74,10 +74,36 @@
 				show_popup :false,
 				password : '',//提现密码
 				showKeyboard : false,
+				info :{
+					balance_money : null,
+					remain_income : null,
+					return_remain_money :null,
+					is_bind : null,
+					is_account : null
+				},
+				config :{
+					withdraw_min_limit : null,
+					withdraw_max_limit : null,
+					withdraw_alipay_limit : null,
+					withdraw_wechat_limit : null,
+					withdraw_rate : null,
+					withdraw_to_account :null,
+					withdraw_to_credit : null
+				}
 			}
 		},
 		created () {
-			
+			this.http.post('/api/user/withdrawPage',{
+				
+			}).then(res => {
+				this.info = res.result.info;
+				this.config = res.result.config;
+				if (this.result.info.is_bind == 0) {
+					this.utils.msg('请先前往设置提现账户',()=>{
+						this.$router.push('/cash-setting')
+					})
+				}
+			})
 		},
 		
 		methods : {

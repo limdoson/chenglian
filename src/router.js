@@ -52,9 +52,26 @@ let router = new Router({
 })
 // let wx_api_list =['openLocation','getLocation','updateAppMessageShareData','updateTimelineShareData','onMenuShareAppMessage','onMenuShareTimeline','chooseWXPay'];
 
-// router.beforeEach((to,form,next) => {
-// 	
-// })
+router.beforeEach((to,form,next) => {
+	/*
+	非首页验证是否绑定用户信息
+	 */
+	if (to.path != '/') {
+		http.post('/api/user/pwdPage',{
+			
+		}).then(res => {
+			if (res.result.is_bind == 0) {//未绑定
+				Router.push('/bind-user-info')
+			} else {
+				next();
+			}
+		})
+		
+	} else {
+		next();
+	}
+	
+})
 
 router.afterEach((to,from) => {
     /*
@@ -63,16 +80,12 @@ router.afterEach((to,from) => {
     if(to.meta.title) {
         window.document.title = to.meta.title;
     }
-    /*
-     * 如果页面存在滚动高度，则将滚动高度清0
-     */
-//  if ($(document).scrollTop()) {
-//      $(document).scrollTop(0)
-//  }
-    /*
+	/*
      * 如果页面有要求设置分享参数
      */
     wxShare.appConfig();
+	
+	
 })
 
 export default router;

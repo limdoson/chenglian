@@ -71,10 +71,10 @@
 				<img src="../assets/img/address.png" alt="">
 				<p>地址管理</p>
 			</router-link>
-			<router-link tag='li' to='/budget-detail'>
+			<!-- <router-link tag='li' to='/budget-detail'>
 				<img src="../assets/img/shouzhimingxi.png" alt="">
 				<p>收支明细</p>
-			</router-link>
+			</router-link> -->
 			<router-link tag='li' to='/reset-pwd'>
 				<img src="../assets/img/pwd.png" alt="">
 				<p>修改密码</p>

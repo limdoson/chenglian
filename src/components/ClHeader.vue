@@ -1,7 +1,7 @@
 <template>
 	<van-nav-bar
 		class='cl-header'
-		:title="$route.meta.title"
+		:title="title ? title :$route.meta.title"
 		left-text="返回"
 		:right-text="rightText"
 		left-arrow
@@ -15,6 +15,10 @@
 	export default {
 		props : {
 			rightText : {
+				type : String,
+				default : null
+			},
+			title : {
 				type : String,
 				default : null
 			}

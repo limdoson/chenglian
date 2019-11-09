@@ -249,7 +249,7 @@ const router_module = [
 	},
 	//我的店铺->收款二维码
 	{
-		path : '/payment-code',
+		path : '/payment-code/:id?',
 		component : () => import('@v/shop/PaymentCode'),
 		meta : {
 			title :'收款二维码'
@@ -257,7 +257,7 @@ const router_module = [
 	},
 	//我的店铺->收款记录
 	{
-		path : '/payment-logs',
+		path : '/payment-logs/:id?',
 		component : () => import('@v/shop/PaymentLogs'),
 		meta : {
 			title :'收款记录'
@@ -269,6 +269,14 @@ const router_module = [
 		component : () => import('@v/product/ProductList'),
 		meta : {
 			title :'商品列表'
+		}
+	},
+	//绑定用户信息
+	{
+		path : '/bind-user-info',
+		component : () => import('@v/user-center/BindUserInfo'),
+		meta : {
+			title :'完善用户信息'
 		}
 	}
 ]

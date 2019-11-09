@@ -6,11 +6,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state : {
-        user : null
+        user : null,
+		is_bind : false,
     },
     mutations : {
 		initUser (state,payload) {
 			state.user = payload;
+		},
+		bindInitMus (state,payload) {
+			state.is_bind = payload
 		}
 	},
     actions : {},
